@@ -13,7 +13,7 @@ interface fifo_if #(
     logic                  full;
     logic                  empty_o;
 
-    // Clocking block cho Driver
+    // Clocking block for Driver
     clocking driver_cb @(posedge clk);
         default input #1step output #1ns;
 
@@ -27,7 +27,7 @@ interface fifo_if #(
         input  rd_data;
     endclocking
 
-    // Clocking block cho Monitor (chỉ lấy mẫu thụ động)
+    // Clocking block for Monitor (passive sampling only)
     clocking monitor_cb @(posedge clk);
         default input #1step;
 

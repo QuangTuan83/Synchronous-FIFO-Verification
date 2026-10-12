@@ -8,7 +8,7 @@ class fifo_driver #(parameter int unsigned DATA_WIDTH = 8);
         this.gen2drv_mbx = mbx;
         this.driver_count = 0;
     endfunction 
-
+    
     task reset_dut(int unsigned num_cycles = 3);
         @(vif.driver_cb);
         vif.driver_cb.rst_n   <= 1'b0;

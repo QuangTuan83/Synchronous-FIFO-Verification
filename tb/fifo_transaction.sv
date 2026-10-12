@@ -4,22 +4,17 @@ class fifo_transaction #( parameter int unsigned DATA_WIDTH = 8 );
     rand bit [DATA_WIDTH-1:0] wr_data;
     rand bit                  wr_en;
     rand bit                  rd_en;
-    
     bit                       rst_n;
     logic [DATA_WIDTH-1:0]    rd_data;
     logic                     is_full;
     logic                     is_empty;
-
     constraint c_dist {
         wr_en dist { 1'b1 := 60, 1'b0 := 40 };
         rd_en dist { 1'b1 := 50, 1'b0 := 50 };
     }
-
     function fifo_transaction #(DATA_WIDTH) clone();
         fifo_transaction #(DATA_WIDTH) tr;
-
         tr = new();
-
         tr.wr_en   = this.wr_en;
         tr.rd_en   = this.rd_en;
         tr.wr_data = this.wr_data;

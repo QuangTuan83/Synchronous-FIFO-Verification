@@ -34,7 +34,7 @@ module fifo_tb_top;
     initial begin
         fifo_test #(DATA_WIDTH, DEPTH) test;
 
-        $dumpfile("dump.vcd");
+        $dumpfile("out/dump.vcd");
         $dumpvars(0, fifo_tb_top);
 
         test = new(intf, 300);
